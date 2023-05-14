@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+button.mdc-button.mdc-button--outlined.mat-mdc-outlined-button.mat-primary.mat-mdc-button-base {
+  color: var(--bs-blue);
+}
+
+.mat-mdc-button.mat-primary {
+  --mdc-text-button-label-text-color: var(--bs-blue);
+}
+
+.mat-mdc-button.mat-accent {
+  --mdc-text-button-label-text-color: var(--bs-danger);
+}
+
+.mat-mdc-icon-button.mat-primary {
+  --mdc-icon-button-icon-color: var(--bs-blue);
+}
+.mat-mdc-icon-button.mat-accent {
+  --mdc-icon-button-icon-color: var(--bs-danger);
+}
+
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+  border-radius: 25px !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}

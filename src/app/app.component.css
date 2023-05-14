@@ -1,0 +1,11 @@
+
+.dh-container {
+  width: 90%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .dh-container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <h1 class="container-title">Almacen de Patitos</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <button mat-stroked-button color="primary" (click)="openDucklingForm(null,false)">
+        <span class="material-icons">add</span>
+        Agregar
+      </button>
+    </div>
+  </div>
+
+  <div class="duckling-list-container">
+    <div class="row">
+      <mat-form-field class="w-100">
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="..." #filter autocomplete="off"
+               [(ngModel)]="filterValue">
+        <button matSuffix mat-icon-button aria-label="Limpiar" *ngIf="filterValue" (click)="filterValue=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="scvs-table-container w-100">
+        <table mat-table [dataSource]="this.dataSource">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID</th>
+            <td mat-cell *matCellDef="let item"> {{item.id}} </td>
+          </ng-container>
+          <ng-container matColumnDef="color">
+            <th mat-header-cell *matHeaderCellDef> Color</th>
+            <td mat-cell *matCellDef="let item"> {{item.color}} </td>
+          </ng-container>
+          <ng-container matColumnDef="size">
+            <th mat-header-cell *matHeaderCellDef> Tamaño</th>
+            <td mat-cell *matCellDef="let item"> {{item.size}} </td>
+          </ng-container>
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Precio</th>
+            <td mat-cell *matCellDef="let item"> {{item.price + 'USD'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Cantidad</th>
+            <td mat-cell *matCellDef="let item"> {{item.quantity}}</td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Acciones</th>
+            <td mat-cell *matCellDef="let item">
+              <button mat-icon-button color="primary" matTooltip="Editar" aria-label="Editar" (click)="openDucklingForm(item, true)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" matTooltip="Borrar" aria-label="Borrar" (click)="openDeleteDucklingForm(item)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No se encontraron resultados para: "{{filter.value}}"</td>
+          </tr>
+        </table>
+        <mat-paginator [length]="this.ducklings.length"
+                       [pageSize]="this.pageSize"
+                       [pageSizeOptions]="this.pageSizeOptions"
+                       (page)="onPageEvent($event)" showFirstLastButtons>
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+

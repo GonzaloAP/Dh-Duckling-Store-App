@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>{{this.data.isEditing ? 'Editar' : 'Agregar'}} Patito</h1>
+<div mat-dialog-content>
+  <form class="w-100" [formGroup]="ducklingForm">
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Color</mat-label>
+          <mat-select class="upper" formControlName="color">
+            <mat-option *ngFor="let item of colors"
+                        value="{{item}}">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Tamaño</mat-label>
+          <mat-select class="upper" formControlName="size">
+            <mat-option *ngFor="let item of sizes"
+                        value="{{item}}">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Precio (USD)</mat-label>
+          <input matInput placeholder="Ingrese el precio" formControlName="price" type="number" [min]="min"
+                 [max]="maxPrice">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Cantidad</mat-label>
+          <input matInput placeholder="Ingrese la cantidad" formControlName="quantity" type="number" [min]="min"
+                 [max]="maxQuantity">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <div class="col-12 action-container">
+    <button mat-button color="primary" (click)="process()">
+      <span class="material-icons">save</span>
+      Guardar
+    </button>
+    <button mat-button mat-dialog-close>
+      <span class="material-icons">cancel</span>
+      Cancelar
+    </button>
+  </div>
+</div>
