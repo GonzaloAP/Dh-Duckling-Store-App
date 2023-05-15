@@ -2,4 +2,4 @@
 Tienda de patitos de hule
 
 
-![Gonzalo] (https://github.com/GonzaloAP/Dh-Duckling-Store-App/blob/main/src/assets/img/spaceman.svg)
+![Gonzalo] (https://raw.githubusercontent.com/GonzaloAP/Dh-Duckling-Store-App/42cc0b46d2ef921799d49335257949e3fafa7a89/src/assets/img/spaceman.svg)
